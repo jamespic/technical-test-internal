@@ -1,30 +1,36 @@
-#nodejs-cucumber-sample
+Hermes QA Technical Test
+========================
 
-Minimal project to show how to setup 
-[cucumber](http://cukes.info/) for nodejs environment
+Objectives
+----------
 
+1. Create more test cases. Try and think about corner cases
+2. Create some tests around vote counts. You'll probably need to implement some steps yourself for this.
+3. Add a function to edit questions.
+4. Add a function to find questions and answers from specific users.
 
-## Prerequesites
+It's OK if you don't manage all these objective. We're more interested in how you approach the problem.
 
-* [Node.js](http://nodejs.org)
-* [NPM](http://npmjs.org)
-* [cucumber-js](https://github.com/cucumber/cucumber-js)
+Raise any bugs you find on the GitHub issue tracker
 
-##How to use
+Prerequisites
+-------------
 
-* Install cucumber-js globally with:
-``` shell
-$ npm install -g cucumber
+1. Download an up-to-date version of NodeJS for your computer
+2. Clone this repository to your local machine
+3. From the command line, run `npm install` to install dependencies
+
+Running Tests
+-------------
+
+From the command line, run tests with:
+
 ```
-* Clone this repository
-* Then install all required dependencies with `npm install --dev`
-* Finally run calculator sample test `npm test`
+node_modules/.bin/cucumberjs
+```
 
-After that you may use this project as a base of your development 
+or on Windows:
 
-## Credits
-All credit goes to [cucumber team](http://cukes.info), [Node.js community](http://nodejs.org) and 
-[cucumber-js](https://github.com/cucumber/cucumber-js) authors
-
-##Licence
-MIT
+```
+.\node_modules\.bin\cucumberjs.cmd
+```
