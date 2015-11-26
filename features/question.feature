@@ -13,7 +13,7 @@ Feature: Asking Questions
   Scenario: Voting on questions
     Given question 0 is "What's the answer?" with content "What exactly is the answer?" by user "john"
     When "john" upvotes on question 0
-    Then question 0 should have an upvote from john
+    Then question 0 should have an upvote from "john"
     
   Scenario: Counting votes
     Given question 0 is "What's the answer?" with content "What exactly is the answer?" by user "john"
