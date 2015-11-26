@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "description": "Test for new Hermes QA candidates",
     "scripts": {
-        "test": "cucumber.js"
+        "test": "cucumber.js",
+        "test-windows": "cucumber.js.cmd"
     },
     "license": "MIT",
     "dependencies": {

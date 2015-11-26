@@ -1,3 +1,7 @@
+/*
+ * These steps call the application, through its REST API
+ */
+
 var expect = require("chai").expect
 var qa = require("../../lib/q-and-a")
 
@@ -5,7 +9,7 @@ module.exports = function() {
   this.Before(function() {
     this.database = new qa.Database()
     this.application = qa.application(this.database)
-    
+
     this.assertStatus = function assertStatus(code) {
       expect(this.result.status).to.equal(code)
     }
@@ -16,18 +20,6 @@ module.exports = function() {
     
     Object.defineProperty(this, "response", {"get": function response() {return this.result.body}})
   })
-  
-  this.Given(/^I have a pre\-registered user with name "([^"]*)", email "([^"]*)", and password "([^"]*)"$/, function (username, email, password) {
-    this.database.users[username] = {"email": email, "password": password}
-  });
-
-  this.Given(/^question (\d+) is "([^"]*)" with content "([^"]*)" by user "([^"]*)"$/, function (questionId, title, content, user) {
-    this.database.questions[questionId] = {"questionId": questionId, "title": title, "content": content, "user": user, "upvotes": [], "downvotes": [], "answers": []}
-  });
-
-  this.Given(/^question (\d+) has a downvote from "([^"]*)"$/, function (questionId, user) {
-    this.database.questions[questionId].downvotes.push(user)
-  });
 
   this.When(/^I register a new user "([^"]*)" with email "([^"]*)" and password "([^"]*)"$/, function (username, email, password) {
     this.result = this.application("POST", "/user/" + username, {"email": email, "password": password})
@@ -67,25 +59,9 @@ module.exports = function() {
     expect(this.response).to.have.property("email", email)
     expect(this.response).to.have.property("password", password)
   });
-
-  this.Then(/^there should be a question with title "([^"]*)" and content "([^"]*)"$/, function (title, content) {
-    var question = this.database.questions.find(function(q) {return q.title == title})
-    expect(question).to.not.be.null
-    expect(question).to.have.property("content", content)
-  });
   
-  this.Then(/^question (\d+) should have an upvote from "([^"]*)"$/, function (questionId, user) {
-    expect(this.database.questions[questionId].upvotes).to.include(user)
-  });
-
   this.Then(/^I should see a question with (\d+) downvote$/, function (downvotes) {
     this.assertSuccess()
     expect(this.response).to.have.property("downvotes", parseInt(downvotes))
-  });
-  
-  this.Then(/^question (\d+) should have an answer "([^"]*)"$/, function (questionId, answerContent) {
-    var answer = this.database.questions[questionId].answers.find(function(a) {return a.content === answerContent})
-    expect(answer).to.not.be.null
-    expect(answer).to.not.be.undefined
   });
 }
