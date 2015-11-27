@@ -37,13 +37,7 @@ From the command line, run tests with:
 npm test
 ```
 
-or on Windows:
-
-```
-npm run-script test-windows
-```
-
-or if everything seems broken:
+or alternatively:
 
 ```
 node .\node_modules\cucumber\bin\cucumber.js
