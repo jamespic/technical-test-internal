@@ -1,10 +1,10 @@
 Hermes QA Technical Test
 ========================
 
-For the Hermes QA Technical test, you'll be working with a toy application. The application is a simple RESTful service, for use by
+For the Hermes QA Technical Test, you'll be working with a fake application. The application is a simple RESTful service, for use by
 a Question and Answer website, like [Stack Overflow](http://stackoverflow.com/).
 
-The application is written in NodeJS, and it has a basic suite of tests written in [cucumber.js](https://github.com/cucumber/cucumber-js), that you can use as your starting point.
+The application is written in [NodeJS](https://nodejs.org), and it has a basic suite of tests written in [cucumber.js](https://github.com/cucumber/cucumber-js), that you can use as your starting point.
 
 There's no web interface (it's a RESTful service), but you can query it with your favourite REST client if that suits your way of working.
 
@@ -18,7 +18,7 @@ Prerequisites
 
 You should have been advised by your recruiter to:
 
-1. Ensure you have an up-to-date version of [NodeJS](https://nodejs.org) for your computer
+1. Ensure you have  [NodeJS 5.0 or above](https://nodejs.org) on your computer
 2. Ensure you have an up-to-date version of [Git](https://git-scm.com/downloads) on your computer
 3. Ensure you hava a [GitHub](https://github.com) account
 4. Familiarise yourself with [cucumber.js](https://github.com/cucumber/cucumber-js)
@@ -35,14 +35,15 @@ Objectives
 
 ###Primary Objective###
 Find any issues you can and raise them on GitHub. Raise anything that you think is broken, problematic, or counterintuitive.
-Issues don't have to be in code - they can also be bad specifications or inaccurate documentation.
+_Issues don't have to be in code_. They can also be bad specifications or inaccurate documentation (including this document). If in doubt, raise it as
+an issue.
 
 ###Secondary Objectives###
 1. Create more automated test cases. Try and think about positive, negative, and corner cases.
 2. Create some test cases around answer vote counts. You'll probably need to implement some steps yourself for this.
 3. Add some new features (maybe the ability to to edit or delete questions, or find questions and answers from specific users), and test them
 
-It's OK if you don't manage all these objectives. We're more interested in how you approach the problem.
+We don't expect you to complete all these objectives in the time. We're more interested in how you approach the problem.
 
 Running Tests
 -------------
@@ -69,13 +70,13 @@ you can start an instance of the application with:
 npm start
 ```
 
-The API
+The API Specification
 -------
 
-The application supports the following operations:
+The application should support the following operations:
 
-- `GET /user/:userId`: Retrieve a user of the system. The response will be JSON like `{"userName": "john", "email": "john@example.com", "password": "password1"}`
-- `POST /user/:userId`: Create a new user. Your request should be JSON like `{"email": "john@example.com", "password": "password1"}`, and you will receive `201 Created` on success.
+- `GET /user/:userName`: Retrieve a user of the system. The response will be JSON like `{"userName": "john", "email": "john@example.com", "password": "password1"}`
+- `POST /user/:userName`: Create a new user, named `userName`. Your request should be JSON like `{"email": "john@example.com", "password": "password1"}`, and you will receive `201 Created` on success.
 - `GET /question/:questionId`: Retrieve information about a question. The response will be JSON like
   `{"user":"john","title":"A Question","content":"A question","upvotes":0,"downvotes":0,"answers":[],"questionId":0}`
 - `POST /question`: Create a new question. Your request should be JSON like `{"user": "john", "title": "Question Title", "content": "A question"}`, and your response will be the same data,
@@ -87,3 +88,5 @@ The application supports the following operations:
 - `GET /question/:questionId/answer/:answerId`: Retrieve a specific answer. The response will be JSON like `{"user":"john","content":"An answer","upvotes":1,"downvotes":0,"answerId":0}`
 - `POST /question/:questionId/answer/:answerId/upvote?user=:userName`: Create an upvote for a user on a question. You will receive `201 Created` on success
 - `POST /question/:questionId/answer/:answerId/downvote?user=:userName`: Create a downvote for a user on a question. You will receive `201 Created` on success
+
+All GET operations should return HTTP 404 if there is no corresponding resource found.

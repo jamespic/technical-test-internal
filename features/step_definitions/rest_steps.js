@@ -11,7 +11,7 @@ module.exports = function() {
     this.application = qa.application(this.database)
 
     this.assertStatus = function assertStatus(code) {
-      expect(this.result.status).to.equal(code)
+      expect(this.result.status).to.equal(parseInt(code))
     }
     
     this.assertSuccess = function assertSuccess() {
@@ -63,5 +63,9 @@ module.exports = function() {
   this.Then(/^I should see a question with (\d+) downvote$/, function (downvotes) {
     this.assertSuccess()
     expect(this.response).to.have.property("downvotes", parseInt(downvotes))
+  });
+  
+  this.Then(/^I should receive a Not Found error$/, function () {
+    this.assertStatus(404)
   });
 }

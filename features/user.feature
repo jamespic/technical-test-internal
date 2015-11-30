@@ -11,3 +11,7 @@ Feature: Registering users
     Given I have a pre-registered user with name "john", email "john@example.com", and password "password1"
     When I lookup details of user "john"
     Then I should see a user with email "john@example.com" and password "password1"
+    
+  Scenario: User not found
+    When I lookup details of user "user-who-doesnt-exist"
+    Then I should receive a Not Found error
