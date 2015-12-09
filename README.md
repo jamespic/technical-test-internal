@@ -28,21 +28,20 @@ You should have been advised by your recruiter to:
 Getting Started
 ---------------
 
-1. Clone this repository to your local machine
+1. Fork this repository, and clone it to your local machine
 2. From the command line, run `npm install` to install dependencies
 
 Objectives
 ----------
 
-###Primary Objective###
-Find any issues you can and raise them on GitHub. Raise anything that you think is broken, problematic, or counterintuitive.
-_Issues don't have to be in code_. They can also be bad specifications or inaccurate documentation (including this document). If in doubt, raise it as
-an issue, even if it feels more like a question.
+Your objective is to add as much value as you can to this project. We'd recommend you look at doing some of the following things:
 
-###Secondary Objectives###
-1. Create more automated test cases. Try and think about positive, negative, and corner cases.
-2. Create some test cases around answer vote counts. You'll probably need to implement some steps yourself for this.
-3. Add some new features (maybe the ability to to edit or delete questions, or find questions and answers from specific users), and test them
+- Find any issues you can and raise them as issues on GitHub. Raise anything that you think is broken, problematic, or counterintuitive.
+  _Issues don't have to be in code_. They can also be bad specifications or inaccurate documentation (including this document). If in doubt, raise it as
+  an issue, even if it feels more like a question.
+- Create more automated test cases. Try and think about positive, negative, and corner cases. Some of the features, like answer
+  vote counts, will probably need you to write your own step definitions.
+- Add some new features, like the ability to to edit or delete questions, or find questions and answers from specific users, and test them
 
 We don't expect you to complete all these objectives in the time. We're more interested in how you approach the problem.
 
