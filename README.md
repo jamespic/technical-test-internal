@@ -22,7 +22,8 @@ You should have been advised by your recruiter to:
 2. Ensure you have an up-to-date version of [Git](https://git-scm.com/downloads) on your computer
 3. Ensure you hava a [GitHub](https://github.com) account
 4. Familiarise yourself with [cucumber.js](https://github.com/cucumber/cucumber-js)
-5. Read up on RESTful Web Services
+5. Read up on RESTful Web Services. You may also want to familiarise yourself with a REST Client, such as
+   (Advanced REST Client)[https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo] or (Postman)[https://www.getpostman.com/]
 
 Getting Started
 ---------------
@@ -36,7 +37,7 @@ Objectives
 ###Primary Objective###
 Find any issues you can and raise them on GitHub. Raise anything that you think is broken, problematic, or counterintuitive.
 _Issues don't have to be in code_. They can also be bad specifications or inaccurate documentation (including this document). If in doubt, raise it as
-an issue.
+an issue, even if it feels more like a question.
 
 ###Secondary Objectives###
 1. Create more automated test cases. Try and think about positive, negative, and corner cases.
