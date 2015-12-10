@@ -23,7 +23,7 @@ You should have been advised by your recruiter to:
 3. Ensure you hava a [GitHub](https://github.com) account
 4. Familiarise yourself with [cucumber.js](https://github.com/cucumber/cucumber-js)
 5. Read up on RESTful Web Services. You may also want to familiarise yourself with a REST Client, such as
-   (Advanced REST Client)[https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo] or (Postman)[https://www.getpostman.com/]
+   [Advanced REST Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [Postman](https://www.getpostman.com/)
 
 Getting Started
 ---------------
