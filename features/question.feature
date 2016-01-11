@@ -20,3 +20,7 @@ Feature: Asking Questions
     And question 0 has a downvote from "john"
     When I look up question 0
     Then I should see a question with 1 downvote
+
+  Scenario: Requesting a missing question
+    When I look up a question that does not exist
+    Then I should receive a Not Found error

@@ -36,7 +36,11 @@ module.exports = function() {
   this.When(/^"([^"]*)" upvotes on question (\d+)$/, function (user, questionId) {
     this.result = this.application("POST", "/question/" + questionId + "/upvote?user=" + user)
   });
-
+  
+  this.When(/^"([^"]*)" upvotes on answer (\d+) on question (\d+)$/, function (user, answerId, questionId) {
+    this.result = this.application("POST", "/question/" + questionId + "/answer/" + answerId + "/upvote?user=" + user)
+  });
+  
   this.When(/^I look up question (\d+)$/, function (questionId) {
     this.result = this.application("GET", "/question/" + questionId)
   });
@@ -68,4 +72,17 @@ module.exports = function() {
   this.Then(/^I should receive a Not Found error$/, function () {
     this.assertStatus(404)
   });
+
+  this.When(/^I look up a question that does not exist$/, function () {
+    this.result = this.application("GET", "/question/9999")
+  });
+  
+  this.When(/^requesting answer (\d+) of question (\d+)$/, function (answerId, questionId) {
+    this.result = this.application("GET", "/question/" + questionId + '/answer/' + answerId)
+  });
+  
+  this.When(/^requesting an answer on a question that doesn't exist$/, function () {
+    this.result = this.application("GET", "/question/9999/answer/0")
+  });
+
 }
