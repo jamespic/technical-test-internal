@@ -13,3 +13,7 @@ Feature: Answering questions
     And question 0 has no answers
     When requesting answer 0 of question 0
     Then I should receive a Not Found error
+
+  Scenario: Requesting an answer on a question that doesn't exist
+    When requesting an answer on a question that doesn't exist
+    Then I should receive a Not Found error
