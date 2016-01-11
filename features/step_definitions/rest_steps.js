@@ -36,7 +36,11 @@ module.exports = function() {
   this.When(/^"([^"]*)" upvotes on question (\d+)$/, function (user, questionId) {
     this.result = this.application("POST", "/question/" + questionId + "/upvote?user=" + user)
   });
-
+  
+  this.When(/^"([^"]*)" upvotes on answer (\d+) on question (\d+)$/, function (user, answerId, questionId) {
+    this.result = this.application("POST", "/question/" + questionId + "/answer/" + answerId + "/upvote?user=" + user)
+  });
+  
   this.When(/^I look up question (\d+)$/, function (questionId) {
     this.result = this.application("GET", "/question/" + questionId)
   });

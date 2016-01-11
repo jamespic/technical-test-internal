@@ -26,6 +26,11 @@ module.exports = function() {
     expect(this.database.questions[questionId].upvotes).to.include(user)
   });
   
+  this.Then(/^answer (\d+) on question (\d+) should have an upvote from "([^"]*)"$/, function (answerId, questionId, user, callback) {
+    // todo: don't know why this is timing out. need to investigate, learn about Chai and Node and debugging tools.
+    expect(this.database.questions[questionId].answers[answerId].upvotes).to.include(user)
+  });
+
   this.Then(/^question (\d+) should have an answer "([^"]*)"$/, function (questionId, answerContent) {
     var answer = this.database.questions[questionId].answers.find(function(a) {return a.content === answerContent})
     expect(answer).to.not.be.null
