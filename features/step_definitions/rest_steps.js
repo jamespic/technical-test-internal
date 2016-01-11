@@ -68,4 +68,10 @@ module.exports = function() {
   this.Then(/^I should receive a Not Found error$/, function () {
     this.assertStatus(404)
   });
+
+  this.When(/^I look up a question that does not exist$/, function () {
+    this.result = this.application("GET", "/question/9999")
+  });
+
+
 }
