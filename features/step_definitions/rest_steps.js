@@ -72,6 +72,9 @@ module.exports = function() {
   this.When(/^I look up a question that does not exist$/, function () {
     this.result = this.application("GET", "/question/9999")
   });
-
-
+  
+  this.When(/^requesting answer (\d+) of question (\d+)$/, function (answerId, questionId) {
+    this.result = this.application("GET", "/question/" + questionId + '/answer/' + answerId)
+  });
+  
 }

@@ -31,4 +31,10 @@ module.exports = function() {
     expect(answer).to.not.be.null
     expect(answer).to.not.be.undefined
   });
+  
+  this.Given(/^question (\d+) has no answers$/, function (questionId) {
+    // todo: not sure how to delete. leaving it for now.
+    // this.database.questions[questionId].answers
+  });
+  
 }
